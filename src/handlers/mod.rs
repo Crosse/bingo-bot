@@ -13,12 +13,14 @@ use super::DISPLAY_NAME;
 mod giphy;
 mod help;
 mod howdy;
+mod python;
 mod rfc;
 mod troutslap;
 
 use giphy::Giphy;
 use help::Help;
 use howdy::Howdy;
+use python::KyleHatesPython;
 use rfc::Rfc;
 use troutslap::TroutSlap;
 
@@ -42,6 +44,7 @@ pub fn get_handlers(
         Box::new(Help::new(client.clone())),
         Box::new(Giphy::new(client.clone(), config)),
         Box::new(Howdy::new(client.clone())),
+        Box::new(KyleHatesPython::new(client.clone())),
         Box::new(Rfc::new(client.clone())),
         Box::new(TroutSlap::new(client.clone())),
     ]
